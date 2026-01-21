@@ -2,15 +2,10 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 import requests
 
-import os
-
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-API_KEY = os.getenv("RESET_API")
-RESET_API_URL = os.getenv("RESET_API_URL", "https://hgcheats.online/api/reset.php")
-
-if not BOT_TOKEN or not API_KEY:
-    raise RuntimeError("Missing required environment variables")
-
+# ===== CONFIG (YOU WILL EDIT THESE LINES) =====
+BOT_TOKEN = "8402962721:AAHk_7pmbBaVwnTVCXZ_Nw_fYCmEPnpLYao"
+API_KEY = "52785760eb550ee8347bd34df70ef8495beafb8bcdebdfc0d68a7a7460c16288"
+RESET_API_URL = "https://hgcheats.online/api/reset.php"
 
 # ===== ADMIN =====
 ADMIN_ID = 6153240508  
@@ -23,6 +18,25 @@ ALLOWED_USERS = [
     6153240508,
 6739116372,
 7832566226,
+7870969791,
+8462473426,
+6220281412,
+5927606107,
+7498005539,
+ 7485246471,
+ 8231987571,
+ 6538911761,
+  6440001006,
+ 6635630485,
+7789122418,
+6397672983,
+6370059238,
+5777980043,
+7197863784,
+6766242490,
+7676242833,
+5913937946,
+1706776305,
   ]
 async def reset_license(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
@@ -53,7 +67,7 @@ async def reset_license(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if not is_allowed:
         await update.message.reply_text(
-            "❌ You are not authorized to use this reset."
+            "❌ You are not authorized to use this reset.Try after 1 Minutes"
         )
         return
 
