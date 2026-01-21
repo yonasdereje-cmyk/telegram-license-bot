@@ -2,10 +2,15 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 import requests
 
-# ===== CONFIG (YOU WILL EDIT THESE LINES) =====
-BOT_TOKEN = "BOT_TOKEN"
-API_KEY = "RESET_API"
-RESET_API_URL = "https://hgcheats.online/api/reset.php"
+import os
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+API_KEY = os.getenv("RESET_API")
+RESET_API_URL = os.getenv("RESET_API_URL", "https://hgcheats.online/api/reset.php")
+
+if not BOT_TOKEN or not API_KEY:
+    raise RuntimeError("Missing required environment variables")
+
 
 # ===== ADMIN =====
 ADMIN_ID = 6153240508  
