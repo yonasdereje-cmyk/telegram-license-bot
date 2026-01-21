@@ -1,29 +1,24 @@
-import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 import requests
 
-# ===== SECURE CONFIG =====
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-API_KEY = os.getenv("RESET_API_KEY")
-RESET_API_URL = os.getenv("RESET_API_URL")
-
-if not BOT_TOKEN or not API_KEY or not RESET_API_URL:
-    raise RuntimeError("Missing environment variables")
+# ===== CONFIG (YOU WILL EDIT THESE LINES) =====
+BOT_TOKEN = "BOT_TOKEN"
+API_KEY = "RESET_API"
+RESET_API_URL = "https://hgcheats.online/api/reset.php"
 
 # ===== ADMIN =====
-ADMIN_ID = 6153240508
+ADMIN_ID = 6153240508  
 
 # ===== MASTER LICENSE =====
 MASTER_LICENSE_KEY = "HG-ZNENJY"
 
-# ===== ALLOWED USERS =====
+# ===== ALLOWED CUSTOMERS (TELEGRAM IDS) =====
 ALLOWED_USERS = [
     6153240508,
-    6739116372,
-    7832566226,
-]
-
+6739116372,
+7832566226,
+  ]
 async def reset_license(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     telegram_id = user.id
